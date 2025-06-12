@@ -6,20 +6,7 @@ from reportlab.lib.colors import HexColor
 from datetime import datetime
 
 def generate_order_pdf(order_data, output_pdf_path):
-    """
-    Generates a PDF invoice with:
-      - A rectangle behind the logo at the top-left (with 15-point padding around the logo),
-        using color #1b1a24.
-      - The logo (logo.png) placed on top of that rectangle (sized 3.0" x 2.0").
-      - Customer name in uppercase, skipping empty fields.
-      - Bill calculation based on total adults/kids using the provided pricing.
-      - The current date/time (instead of the order's date) is used.
-      - Under the total, the GST amount (10%) is displayed on the same line and then an extra line below
-        stating “Includes a GST of $X”.
-      - "Make all checks payable..." and "THANK YOU FOR YOUR BUSINESS!" are centered at the bottom.
 
-    output_pdf_path must be a full file path ending with ".pdf".
-    """
     c = canvas.Canvas(output_pdf_path, pagesize=letter)
     width, height = letter
 
