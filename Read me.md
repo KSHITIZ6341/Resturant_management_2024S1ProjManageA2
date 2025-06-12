@@ -36,10 +36,10 @@ This prototype is part of a larger **Restaurant Management Software Suite**. The
   API-based ordering system and synchronization with third-party services.
 
 - **Advanced Order & Ticket Management**  
-  Full backend for managing orders, kitchen tickets, and issue tracking.
+  Full backend for managing orders, Costumer Reservation tickets, and issue tracking.
 
 - **AI Chatbot Module**  
-  Internal AI assistant for handling common queries, inventory lookups, and workflow automation.
+  Internal AI assistant for handling common queries and inventory lookups.
 
 - **Customer Logging System** *(in development)*  
   A planned module to track customer order history, preferences, and operational insights.
