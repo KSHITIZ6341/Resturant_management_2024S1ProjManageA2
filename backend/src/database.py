@@ -2,41 +2,24 @@ import sqlite3
 
 DB_NAME = "tour_group.db"
 
+
 def get_connection():
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect(DB_NAME, timeout=30)
     conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys = ON")
+    conn.execute("PRAGMA journal_mode = WAL")
+    conn.execute("PRAGMA synchronous = NORMAL")
     return conn
+
 
 def init_db():
     conn = get_connection()
     cursor = conn.cursor()
 
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS customers (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            email TEXT NOT NULL,
-            price_lunch REAL NOT NULL,
-            price_dinner REAL NOT NULL,
-            price_kids REAL NOT NULL,
-            phone TEXT,
-            address TEXT,
-            additional_info TEXT
-        )
-    ''')
-
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS menu_items (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            category TEXT NOT NULL,
-            name TEXT NOT NULL
-        )
-    ''')
-
-    cursor.execute('''
         CREATE TABLE IF NOT EXISTS orders (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            customer_id INTEGER NOT NULL,
+            customer_id TEXT NOT NULL,
             order_number TEXT NOT NULL,
             service_type TEXT NOT NULL,
             adults INTEGER NOT NULL,
@@ -45,9 +28,17 @@ def init_db():
             order_date TEXT NOT NULL,
             order_data TEXT,
             order_docx_path TEXT,
-            FOREIGN KEY (customer_id) REFERENCES customers(id)
+            order_pdf_path TEXT
         )
     ''')
+
+    existing_order_columns = {
+        row[1] for row in cursor.execute("PRAGMA table_info(orders)").fetchall()
+    }
+    if "order_docx_path" not in existing_order_columns:
+        cursor.execute("ALTER TABLE orders ADD COLUMN order_docx_path TEXT")
+    if "order_pdf_path" not in existing_order_columns:
+        cursor.execute("ALTER TABLE orders ADD COLUMN order_pdf_path TEXT")
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS invoices (
@@ -85,8 +76,13 @@ def init_db():
         )
     ''')
 
+    cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_customer_id ON orders(customer_id)")
+    cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_order_date ON orders(order_date)")
+    cursor.execute("CREATE INDEX IF NOT EXISTS idx_invoices_order_id ON invoices(order_id)")
+
     conn.commit()
     conn.close()
+
 
 if __name__ == '__main__':
     init_db()

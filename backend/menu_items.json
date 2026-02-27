@@ -1,0 +1,27 @@
+[
+  {
+    "id": "4d77996f-7295-499b-9b1b-42eec3e51365",
+    "name": "Snails",
+    "category": "ENTREE"
+  },
+  {
+    "id": "89971398-b17e-4af0-a9ac-e50dfb018cb1",
+    "name": "Beef",
+    "category": "MAIN"
+  },
+  {
+    "id": "629bc59a-77ea-4126-b51e-64bfde2243f5",
+    "name": "Creme caramel",
+    "category": "DESSERT"
+  },
+  {
+    "id": "efb682ee-3750-44e7-8079-3d7e2eecfb31",
+    "name": "pjolk",
+    "category": "ENTREE"
+  },
+  {
+    "id": "29dffe65-3b9e-4d12-8b09-b77acd5400b0",
+    "name": "uyghjg",
+    "category": "MAIN"
+  }
+]

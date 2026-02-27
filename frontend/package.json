@@ -1,0 +1,51 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:desktop": "concurrently \"npm run dev\" \"npm run electron:dev\"",
+    "electron:dev": "wait-on http://localhost:5173 && cross-env NODE_ENV=development VITE_DEV_SERVER_URL=http://localhost:5173 electron ./electron/main.cjs",
+    "desktop": "cross-env NODE_ENV=production electron ./electron/main.cjs",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.3",
+    "@mui/material": "^7.3.3",
+    "@mui/x-date-pickers": "^8.12.0",
+    "dayjs": "^1.11.18",
+    "gsap": "^3.12.5",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.9.3",
+    "react-to-print": "^3.1.1",
+    "@mui/x-charts": "^7.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@tailwindcss/postcss": "^4.1.14",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.3",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^32.2.0",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.4.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.14",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.44.0",
+    "vite": "^7.1.7",
+    "wait-on": "^7.2.0"
+  }
+}

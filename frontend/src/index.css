@@ -1,0 +1,39 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Sora', 'DM Sans', sans-serif;
+  --brand-primary: #2563eb;
+  --brand-secondary: #a855f7;
+  --surface: #f3f5fb;
+  --surface-soft: #eef2ff;
+  --ink: #0f172a;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(96, 165, 250, 0.13), transparent 36%),
+    radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.11), transparent 34%),
+    var(--surface);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
