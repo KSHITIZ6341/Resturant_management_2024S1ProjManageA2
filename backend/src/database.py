@@ -12,31 +12,9 @@ def init_db():
     cursor = conn.cursor()
 
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS customers (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            email TEXT NOT NULL,
-            price_lunch REAL NOT NULL,
-            price_dinner REAL NOT NULL,
-            price_kids REAL NOT NULL,
-            phone TEXT,
-            address TEXT,
-            additional_info TEXT
-        )
-    ''')
-
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS menu_items (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            category TEXT NOT NULL,
-            name TEXT NOT NULL
-        )
-    ''')
-
-    cursor.execute('''
         CREATE TABLE IF NOT EXISTS orders (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            customer_id INTEGER NOT NULL,
+            customer_id TEXT NOT NULL,
             order_number TEXT NOT NULL,
             service_type TEXT NOT NULL,
             adults INTEGER NOT NULL,
@@ -44,8 +22,7 @@ def init_db():
             arrival_time TEXT NOT NULL,
             order_date TEXT NOT NULL,
             order_data TEXT,
-            order_docx_path TEXT,
-            FOREIGN KEY (customer_id) REFERENCES customers(id)
+            order_docx_path TEXT
         )
     ''')
 

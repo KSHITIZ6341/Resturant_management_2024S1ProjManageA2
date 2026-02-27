@@ -1,0 +1,17 @@
+[
+    {
+        "id": "4d77996f-7295-499b-9b1b-42eec3e51365",
+        "name": "Snails",
+        "category": "ENTREE"
+    },
+    {
+        "id": "89971398-b17e-4af0-a9ac-e50dfb018cb1",
+        "name": "Beef",
+        "category": "MAIN"
+    },
+    {
+        "id": "629bc59a-77ea-4126-b51e-64bfde2243f5",
+        "name": "Creme caramel",
+        "category": "DESSERT"
+    }
+]
