@@ -1,0 +1,24 @@
+[
+    {
+        "name": "Kshitiz Suwal",
+        "email": "kshitizsuwal@gmail.com",
+        "price_lunch": "43",
+        "price_dinner": "43",
+        "price_kids": "12",
+        "phone": "0405007273",
+        "address": "Unit 25, 11-15 King's Street, Rockdale 2216, Sydney, NSW",
+        "additional_info": "",
+        "id": "6026dd00-9222-410f-bd34-ac562bd46735"
+    },
+    {
+        "name": "vdsd",
+        "email": "dsfsd",
+        "price_lunch": "32",
+        "price_dinner": "32",
+        "price_kids": "32",
+        "phone": "sdfds",
+        "address": "ds",
+        "additional_info": "",
+        "id": "74e2bec3-9981-476e-a5ff-36d3bfd17e1a"
+    }
+]

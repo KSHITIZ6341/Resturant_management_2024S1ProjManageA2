@@ -1,4 +1,4 @@
-import sys
+geminimport sys
 import os
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QHBoxLayout, QVBoxLayout,
